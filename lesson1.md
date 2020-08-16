@@ -58,3 +58,16 @@ sudo ulimit -n 82920
 
 tidb目录下执行```bin/tidb-server```，看到如下输出，可知服务启动成功
 ![image](https://github.com/hwttechnology/tidb-course/blob/master/img/start_tidb_server.png)
+
+
+### 修改代码：开启事务时输出hello transaction
+
+#### 代码diff
+以transaction、begin等作为关键词搜索源码，找到开启事务的函数是```store/tikv/kv.go```里的Begin函数，改动如下：
+![image](https://github.com/hwttechnology/tidb-course/blob/master/img/code_diff.png)
+
+#### 运行效果
+服务启动后，每隔1秒都会输出hello transaction，可知道tidb内部会自动周期性执行一些内部事务
+![image](https://github.com/hwttechnology/tidb-course/blob/master/img/print_hello.png)
+
+
