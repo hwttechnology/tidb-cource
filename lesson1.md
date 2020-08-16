@@ -26,7 +26,7 @@ git-fetch-with-cli = true
 #### 启动pd-server
 
 pd目录下执行```bin/pd-server```，有如下输出，可知服务启动成功
-
+![image](https://github.com/hwttechnology/tidb-course/blob/master/img/start_pd_server.png)
 
 #### 启动tikv-server
 
@@ -34,7 +34,6 @@ tikv目录下执行
 ```shell
 ./target/release/tikv-server
 ```
-
 最后一行输出报
 ```
 [2020/08/16 20:18:13.154 +08:00] [FATAL] [server.rs:920] ["the maximum number of open file descriptors is too small, got 256, expect greater or equal to 82920"]
@@ -48,6 +47,7 @@ sudo sysctl -w kern.maxfilesperproc=1048576
 sudo ulimit -n 82920
 ```
 再次启动服务，看到如下输出
+![image](https://github.com/hwttechnology/tidb-course/blob/master/img/start_tikv_server.png)
 ```
 [2020/08/16 20:30:20.145 +08:00] [INFO] [server.rs:244] ["TiKV is ready to serve”]
 ```
@@ -57,4 +57,4 @@ sudo ulimit -n 82920
 #### 启动tidb-server
 
 tidb目录下执行```bin/tidb-server```，看到如下输出，可知服务启动成功
-
+![image](https://github.com/hwttechnology/tidb-course/blob/master/img/start_tidb_server.png)
